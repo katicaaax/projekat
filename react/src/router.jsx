@@ -1,5 +1,8 @@
 import {createBrowserRouter} from "react-router-dom";
 import Login from "./pages/Login.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Signup from "./pages/Signup.jsx";
+import Users from "./pages/Users.jsx";
 
 
 //kreiranje ruta
@@ -14,9 +17,14 @@ const router = createBrowserRouter( [
     element: <Signup />
 },
 {
-    path: '/ussers',
+    path: '/users',
     element: <Users />
+},
+{
+    path: '*', //sve sto nije u okviru nasih definisanih ruta
+    element: <NotFound />
 }
+
 
 ])
 
