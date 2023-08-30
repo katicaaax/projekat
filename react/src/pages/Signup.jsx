@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
-import {useRef} from "react";
+import { useState } from "react"; // Only import useState if it's used in this component
+import { useRef } from "react"; // Import useRef from the react package
+import axiosClient from "../axios-client.jsx";
+import { useStateContext } from "../contexts/ContextProvider.jsx";
+
 export default function Signup() {
 
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmationRef = useRef();
+    const {setUser, setToken} = useStateContext();
 
 const onSubmit = (ev) => {
     ev.preventDefault()
@@ -16,7 +21,13 @@ const onSubmit = (ev) => {
         password_confirmation: passwordConfirmationRef.current.value,
 
     }
-    console.log(payload);
+    axiosClient.post('/signup', payload)
+    .then(({data}) => { //sta se vraca iz servera
+        //cuvamo podatke i token
+        setUser(data.user)
+        setToken(data.token)
+
+    })
 }
 
 
