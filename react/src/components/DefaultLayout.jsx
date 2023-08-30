@@ -11,6 +11,10 @@ const {user, token} = useStateContext()
     return <Navigate to ="/login" />
   }
   
+const onLogout = (ev) => {
+ev.preventDefault()
+}
+
   return (
 <div id="defaultLayout">
     <aside> 
@@ -23,7 +27,8 @@ const {user, token} = useStateContext()
                 Header
             </div>
       <div>
-        User info
+      {user.name}
+      <a href="#" onClick={onLogout} className="btn-logout">Logout</a>
     </div>
     </header>
 <main>
