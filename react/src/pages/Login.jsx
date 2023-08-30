@@ -10,7 +10,7 @@ ev.preventDefault()
         <div className="login-signup-form animated fadeInDown">
             <div className="form">
                 <form onSubmit={onSubmit}>
-                    <h1 className=",e="title>
+                    <h1 className="titlee=">
                         Login into your account
                     </h1>
 <input type="email" placeholder="Email" />
