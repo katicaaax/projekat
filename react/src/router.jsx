@@ -14,7 +14,6 @@ const router = createBrowserRouter(  [
     {
         path: '/',
         element: <DefaultLayout />,
-        //definisemo "decu", odnosno nase rute u defaultnom layoutu
       children: [
         {
             path: '/',

@@ -4,7 +4,7 @@ export default function DefaultLayout(){
 
     return(
 <div>
-    
+    default
     <Outlet />
 </div>
 

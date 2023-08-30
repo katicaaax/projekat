@@ -1,8 +1,8 @@
-export default function Users(){
+export default function Users() {
 
-    return(
+    return (
         <div>
-            Users
+      Users
         </div>
     )
 }
