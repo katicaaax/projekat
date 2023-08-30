@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-export default function GuestLayout(){
+export default function GuestLayout() {
 
-    return(
+    return ( 
 //renderujemo login i signup
 <div>
-<h1>Test</h1>
-    <Outlet />
+
+<Outlet />   
 </div>
 
     )

@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import DefaultLayout from "./components/DefaultLayout.jsx";
 import GuestLayout from "./components/GuestLayout.jsx";
 import Login from "./pages/Login.jsx";
@@ -13,7 +13,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 const router = createBrowserRouter(  [ 
     {
         path: '/',
-        element: <DefaultLayout />,
+        element: <DefaultLayout/>,
       children: [
         {
             path: '/',
@@ -22,33 +22,33 @@ const router = createBrowserRouter(  [
         },
         {
             path: '/users',
-            element: <Users />
+            element: <Users/>
         },
         {
             path: '/dashboard',
-            element: <Dashboard />
+            element: <Dashboard/>
         }
       ]
 
     },
     {
     path: '/',
-    element: <GuestLayout />,
+    element: <GuestLayout/>,
     children: [
         {
             path: '/signup',
-            element: <Signup />
+            element: <Signup/>
         },
         {
             path: '/login',
-            element: <Login />
+            element: <Login/>
         },
     ]
 },
 
 {
     path: '*', //sve sto nije u okviru nasih definisanih ruta
-    element: <NotFound />
+    element: <NotFound/>
 }
 
 
