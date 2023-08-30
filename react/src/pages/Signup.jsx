@@ -28,6 +28,12 @@ const onSubmit = (ev) => {
         setToken(data.token)
 
     })
+    .catch(err => {
+        const response = err.response;
+        if(response && response.status == 422){ //422 je application error
+       console.log(response.data.errors);
+        }
+    })
 }
 
 
