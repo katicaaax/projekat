@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-public function login(LoginRequest $request){
+
+
+public function signup(SignupRequest $request){
     $data = $request->validated();
     /** @var \App\Models\User $user */
    $user = User::create([
@@ -20,11 +22,12 @@ public function login(LoginRequest $request){
     $token = $user->createToken('main')-> plainTextToken;
 
     return response(compact('user', 'token'));
-
+    
 }
 
-public function signup(SignupRequest $request){
+public function login(LoginRequest $request){
     
+
 }
 
 public function logiut(Request $request){
