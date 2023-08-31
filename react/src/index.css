@@ -18,6 +18,7 @@ body {
     font-size: 14px;
     color: #212121;
     background-color: #f6f6f6;
+    
 }
 
 input {
@@ -86,7 +87,7 @@ input:focus {
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #5b08a7;
+    background: #bd9edb;
 }
 
 .text-center {
@@ -146,6 +147,8 @@ table > tbody > tr > td {
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .login-signup-form .form {
@@ -200,10 +203,12 @@ table > tbody > tr > td {
 
 #defaultLayout aside > a:hover {
     background-color: rgba(0, 0, 0, 0.2);
+   
 }
 
 #defaultLayout .content {
     flex: 1;
+    
 }
 
 #defaultLayout header {
@@ -214,10 +219,13 @@ table > tbody > tr > td {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
 }
 
 #defaultLayout main {
     padding: 2rem;
+    
+   
 }
 
 .animated {

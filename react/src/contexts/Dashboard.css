@@ -1,0 +1,19 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  justify-content: flex-start; /* Align text at the top */
+  align-items: flex-start; /* Align text at the left */
+  height: 100vh;
+  background-color: #f6f6f6;
+  background-image: url('../images/welcome.png'); /* Use the correct path */
+  background-size: cover;
+  background-position: top left; /* Set background to top-left corner */
+  background-repeat: no-repeat;
+  padding: 20px; /* Add padding for text */
+}
+
+.dashboard-text {
+  font-size: 24px;
+  color: #212121;
+}
+
