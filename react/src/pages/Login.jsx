@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import {createRef, useState} from "react";
+import {useStateContext} from "../contexts/ContextProvider.jsx";
+import axiosClient from "../axios-client.js";
 
 export default function Login() {
 
@@ -14,6 +17,7 @@ const payload = {
     password: passwordRef.current.value,
 
   }
+  setErrors(null)
   axiosClient.post( '/login', payload)
     .then(({data}) => {
       setUser(data.user)
@@ -22,7 +26,14 @@ const payload = {
     .catch(err => {
       const response = err.response;
       if (response && response.status === 422) {
-        setErrors(response.data.errors)
+        if(response.data.errors){
+            setErrors(response.data.errors)
+        }else {
+            setErrors( {
+                email: [response.data.message]
+            })
+        }
+      
       }
     })
 }
