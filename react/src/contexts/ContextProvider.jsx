@@ -1,38 +1,48 @@
-import { useState } from "react";
-import { createContext } from "react";
-import { useContext } from "react";
+import {createContext, useContext, useState} from "react";
 
 const StateContext = createContext({
-    user: null,
-    token:  null,
-    setUser: () => {},
-    setToken: () => {}
+  currentUser: null,
+  token: null,
+  notification: null,
+  setUser: () => {},
+  setToken: () => {},
+  setNotification: () => {}
 })
 
 export const ContextProvider = ({children}) => {
-   const [user, setUser] = useState({});
-   const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
+  const [user, setUser] = useState({});
+  const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
+  const [notification, _setNotification] = useState('');
 
-   const setToken = (token) => {
+  const setToken = (token) => {
     _setToken(token)
-    if(token){
-        localStorage.setItem('ACCESS_TOKEN', token); //cuvamo u local storage userov token
-    }else {
-        localStorage.removeItem('ACCESS_TOKEN')
+    if (token) {
+      localStorage.setItem('ACCESS_TOKEN', token);
+    } else {
+      localStorage.removeItem('ACCESS_TOKEN');
     }
-   }
-   
-    return (
-        <StateContext.Provider value={{ //duple zagrade jer prenosim objekat
-user,
-token,
-setUser,
-setToken
+  }
 
-        }}> 
-{children} 
-        </StateContext.Provider>
-    )
+  const setNotification = message => {
+    _setNotification(message);
+
+    setTimeout(() => {
+      _setNotification('')
+    }, 5000)
+  }
+
+  return (
+    <StateContext.Provider value={{
+      user,
+      setUser,
+      token,
+      setToken,
+      notification,
+      setNotification
+    }}>
+      {children}
+    </StateContext.Provider>
+  );
 }
 
-export const useStateContext = () => useContext(StateContext)
+export const useStateContext = () => useContext(StateContext);
