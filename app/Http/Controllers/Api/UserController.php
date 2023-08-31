@@ -18,6 +18,7 @@ class UserController extends Controller
     public function index()
     {
         return UserResource::collection(User::query()->orderBy('id', 'desc')->paginate(10));
+        //paginacija nije implementirana
     }
 
     /**
@@ -70,7 +71,7 @@ class UserController extends Controller
      * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $user) 
     {
         $user->delete();
 
