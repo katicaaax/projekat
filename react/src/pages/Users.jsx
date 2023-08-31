@@ -12,6 +12,23 @@ export default function Users() {
   const [loading, setLoading] = useState(false);
   const {setNotification} = useStateContext()
 
+  useEffect(() => {
+    getUsers();
+  }, [])
+
+  
+  
+  const getUsers = () => {
+    setLoading(true)
+   axiosClient.get('/users')
+  .then(({ data }) => {
+      setLoading(false)
+        setUsers(data.data)
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+  }
 
 
     return (
