@@ -3,7 +3,7 @@
   flex-direction: column; /* Stack text vertically */
   justify-content: flex-start; /* Align text at the top */
   align-items: flex-start; /* Align text at the left */
-  height: 100vh;
+  height: 150vh;
   background-color: #f6f6f6;
   background-image: url('../images/welcome.png'); /* Use the correct path */
   background-size: cover;
