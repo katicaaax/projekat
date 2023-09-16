@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Signup from "./pages/Signup";
 import Users from "./pages/Users";
 import UserForm from "./pages/UserForm";
+import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard/>
       },
+      {
+        path: '/projects',
+        element: <Projects/>
+      },
+      
       {
         path: '/users',
         element: <Users/>
