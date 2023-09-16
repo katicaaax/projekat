@@ -37,7 +37,7 @@ class ProjectController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:2000',
-            'priority' => 'required|integer|between:1,10',
+            //priority' => 'required|integer|between:1,10',
             'user_id' => 'required|integer'
         ]);
 
