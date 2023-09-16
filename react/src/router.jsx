@@ -8,6 +8,10 @@ import Signup from "./pages/Signup";
 import Users from "./pages/Users";
 import UserForm from "./pages/UserForm";
 import Projects from "./pages/Projects";
+import Tasks from "./pages/Tasks";
+import ProjectForm from "./pages/ProjectForm";
+import TaskForm from "./pages/TaskForm";
+
 
 const router = createBrowserRouter([
   {
@@ -26,10 +30,21 @@ const router = createBrowserRouter([
         path: '/projects',
         element: <Projects/>
       },
-      
+      {
+        path: '/projects/new',
+        element: <ProjectForm key="projectCreate" />
+      },
       {
         path: '/users',
         element: <Users/>
+      },
+      {
+        path: '/tasks',
+       element: <Tasks/>
+      },
+      {
+        path: '/tasks/new',
+        element: <TaskForm key="TaskCreate" />
       },
       {
         path: '/users/new',
