@@ -10,7 +10,8 @@ export default function ProjectForm() {
   const [project, setProject] = useState({
     id: null,
     name: '',
-    description: ''
+    description: '',
+    priority: ''
   });
   const [errors, setErrors] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -80,6 +81,7 @@ export default function ProjectForm() {
           <form onSubmit={onSubmit}>
             <input value={project.name} onChange={ev => setProject({ ...project, name: ev.target.value })} placeholder="Name" />
             <input value={project.description} onChange={ev => setProject({ ...project, description: ev.target.value })} placeholder="Description" />
+            <input value={project.priority} onChange={ev => setProject({ ...project, priority: ev.target.value })} placeholder="Priority" />
             <button className="btn">Save</button>
           </form>
         )}

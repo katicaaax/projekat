@@ -9,7 +9,8 @@ export default function TaskForm() {
   const [task, setTask] = useState({
     id: null,
     name: '',
-    description: ''
+    description: '',
+    priority: ''
   });
   const [errors, setErrors] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -79,6 +80,7 @@ export default function TaskForm() {
           <form onSubmit={onSubmit}>
             <input value={task.name} onChange={ev => setTask({ ...task, name: ev.target.value })} placeholder="Name" />
             <input value={task.description} onChange={ev => setTask({ ...task, description: ev.target.value })} placeholder="Description" />
+            <input value={task.priority} onChange={ev => setTask({ ...task, priority: ev.target.value })} placeholder="Priority" />
             <button className="btn">Save</button>
           </form>
         )}

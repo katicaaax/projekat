@@ -22,11 +22,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-   Route::resource('/projects', ProjectController::class)->only(['store','destroy']);  
+   //Route::resource('/projects', ProjectController::class)->only(['store','destroy']);  
+   Route::post('/projects', [ProjectController::class, 'projects']);
     Route::apiResource('/users', UserController::class);
 });
 
-Route::resource('/projects', ProjectController::class)->only(['store','destroy']);  
+//Route::resource('/projects', ProjectController::class)->only(['store','destroy']);  
 
 Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
