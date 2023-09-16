@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Http\Resources\TaskCollection;
+use App\Http\Resources\TaskResource;
+use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -12,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::all();
+        return new TaskCollection($tasks);
     }
 
     /**
@@ -28,7 +32,24 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:2000',
+            'priority' => 'required|integer|between:1,10',
+            'project_id' => 'required'
+        ]);
+
+        if ($validator->fails())
+            return response()->json($validator->errors());
+
+        $task = Task::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'priority' => $request->priority,
+            'project_id' => $request->project_id
+        ]);
+
+        return response()->json(['Task is created successfully.', new TaskResource($task)]);
     }
 
     /**
@@ -36,7 +57,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return new TaskResource($task);
     }
 
     /**
@@ -60,6 +81,8 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return response()->json('Task is deleted successfully.');
     }
 }
