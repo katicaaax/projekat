@@ -35,6 +35,10 @@ const router = createBrowserRouter([
         element: <ProjectForm key="projectCreate" />
       },
       {
+        path: '/projects/:id',
+        element: <ProjectForm key="projectUpdate" />
+      },
+      {
         path: '/users',
         element: <Users/>
       },
