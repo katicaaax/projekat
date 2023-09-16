@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::post('/projects', ProjectController::class)->only(['store','destroy']);
+    Route::resource('/projects', ProjectController::class)->only(['store','destroy']);
     Route::apiResource('/users', UserController::class);
 });
 
