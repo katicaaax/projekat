@@ -43,7 +43,8 @@ input:focus {
 .btn-delete {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #a63d8d;
+    background: #1f0669;
+
     border: 0;
     text-decoration: none;
     padding: 15px;
@@ -75,10 +76,11 @@ input:focus {
 .btn-logout {
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    color: #212121;
+    color: #ffffff;
     transition: all 0.3s;
     border-radius: 6px;
-    background-color: #a95c97;
+    background-color: #1f0669;
+
 }
 .btn-logout:hover {
     background-color: rgba(39, 32, 32, 0.1);
@@ -188,7 +190,7 @@ table > tbody > tr > td {
 
 #defaultLayout aside {
     width: 240px;
-    background-color: #c14ab5;
+    background-color: #1f0669;
     padding: 1rem
 }
 
