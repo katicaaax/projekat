@@ -11,8 +11,10 @@ class Project extends Model
         'name',
         'description',
         'priority',
+        'user_id'
 
     ];
+    protected $table = 'projects';
 
     public function user()
     {

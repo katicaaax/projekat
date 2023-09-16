@@ -34,11 +34,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:2000',
-            //priority' => 'required|integer|between:1,10',
-            'user_id' => 'required|integer'
+            'priority' => 'required|integer|between:1,10',
+           //'user_id' => 'required|integer'
         ]);
 
         if ($validator->fails())
