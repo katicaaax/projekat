@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +22,18 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::resource('/projects', ProjectController::class)->only(['store','destroy']);
+    //Route::resource('/projects', ProjectController::class)->only(['store','destroy']);
+    Route::post('/projects', [ProjectController::class, 'create']);
+    /*
+    Route::get('/projects', function (Request $request) {
+        return $request->project();
+    });
+    */
+    Route::get('/projects/{id}', function ($id) {
+        $project = \App\Models\Project::find($id);
+        return response()->json($project);
+    });
+    
     Route::apiResource('/users', UserController::class);
 });
 

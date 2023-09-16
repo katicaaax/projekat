@@ -3,6 +3,7 @@ import axiosClient from "../axios-client.js";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider.jsx";
 
+
 export default function Projects() {
 
   const [projects, setProjects] = useState([]);
@@ -20,7 +21,7 @@ export default function Projects() {
     axiosClient.delete(`/projects/${project.id}`)
       .then(() => {
         setNotification('Project was successfully deleted');
-        getProjects();
+        getProjects()
       })
   }
 
