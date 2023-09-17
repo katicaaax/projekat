@@ -47,7 +47,7 @@ class TaskController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'priority' => $request->priority,
-            'project_id' => $request->project_id,
+            //'project_id' => $request->project_id,
             'user_id' => Auth::user()->id
         ]);
 
