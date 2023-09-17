@@ -31,7 +31,7 @@ export default function DefaultLayout() {
     <div id="defaultLayout">
       <aside>
         <Link to="/dashboard">Dashboard</Link>
-        {user.is_admin && <Link to="/users">Users</Link>}
+        {user.is_admin == 1 && <Link to="/users">Users</Link>}
         <Link to="/projects">Projects</Link>
         <Link to="/tasks">Tasks</Link>
       </aside>
