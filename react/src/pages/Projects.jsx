@@ -9,6 +9,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   const { setNotification } = useStateContext();
+  const [sortOrder, setSortOrder] = useState("desc");
 
   useEffect(() => {
     getProjects();
@@ -36,13 +37,26 @@ export default function Projects() {
         setLoading(false);
       })
   }
+  const handleSortByPriority = () => {
+    const sortedProjects = [...projects];
+    sortedProjects.sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.priority - b.priority;
+      } else {
+        return b.priority - a.priority;
+      }
+    });
+    setProjects(sortedProjects);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  }
 
   return (
     <div>
       <div>
         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", }}>
           <h1>Projects</h1>
-          { user.is_admin == 1 && <Link className="btn-add" to="/projects/new">Add new</Link> }
+          {user.is_admin == 1 && <Link className="btn-add" to="/projects/new">Add new</Link>}
+          <button onClick={handleSortByPriority}>Sort by Priority</button> {/* Add the button */}
         </div>
         <div className="card animated fadeInDown">
           <table>
