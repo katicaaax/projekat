@@ -24,7 +24,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $tasks = Task::all();
+        return $tasks;
     }
 
     /**
@@ -36,7 +37,7 @@ class TaskController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:2000',
             'priority' => 'required|integer|between:1,10',
-            'project_id' => 'required'
+            //'project_id' => 'required'
         ]);
 
         if ($validator->fails())
@@ -46,7 +47,8 @@ class TaskController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'priority' => $request->priority,
-            'project_id' => $request->project_id
+            'project_id' => $request->project_id,
+            'user_id' => Auth::user()->id
         ]);
 
         return response()->json(['Task is created successfully.', new TaskResource($task)]);

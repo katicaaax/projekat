@@ -12,4 +12,11 @@ class Task extends Model
         'description',
         'priority',
     ];
+
+    protected $table = 'tasks';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+}
 }
