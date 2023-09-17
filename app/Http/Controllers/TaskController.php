@@ -48,7 +48,7 @@ class TaskController extends Controller
             'description' => $request->description,
             'priority' => $request->priority,
             //'project_id' => $request->project_id,
-            'user_id' => Auth::user()->id
+            'user_id' => auth()->user()->id
         ]);
 
         return response()->json(['Task is created successfully.', new TaskResource($task)]);

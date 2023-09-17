@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-   Route::get('/projects', [ProjectController::class, 'index']); 
-    Route::post('/projects', [ProjectController::class, 'store']);
+
+    Route::apiResource('/projects', ProjectController::class);
     Route::get('/tasks', [TaskController::class, 'index']); 
     Route::post('/tasks', [TaskController::class, 'store']);
 
