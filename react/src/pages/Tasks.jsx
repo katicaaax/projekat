@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider.jsx";
 
 export default function Tasks() {
-
+  const { user } = useStateContext();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
   const { setNotification } = useStateContext();
@@ -41,7 +41,7 @@ export default function Tasks() {
       <div>
         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", }}>
           <h1>Tasks</h1>
-          <Link className="btn-add" to="/tasks/new">Add new</Link>
+          { user.is_admin &&  <Link className="btn-add" to="/tasks/new">Add new</Link> }
         </div>
         <div className="card animated fadeInDown">
           <table>
@@ -70,11 +70,14 @@ export default function Tasks() {
                     <td>{t.name}</td>
                     <td>{t.description}</td>
                     <td>{t.priority}</td>
+                    { user.is_admin && 
                     <td>
+                      
                       <Link className="btn-edit" to={'/tasks/' + t.id}>Edit</Link>
                       &nbsp;
                       <button className="btn-delete" onClick={ev => onDeleteClick(t)}>Delete</button>
                     </td>
+}
                   </tr>
                 ))}
               </tbody>
