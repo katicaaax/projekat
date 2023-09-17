@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/tasks', [TaskController::class, 'store']);
 
 
-    Route::apiResource('/users', UserController::class);
+    Route::apiResource('/users', UserController::class)->middleware('admin');
 });
 
 

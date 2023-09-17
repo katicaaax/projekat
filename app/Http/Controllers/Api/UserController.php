@@ -17,6 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        auth()->user()->can('manipulate', User::class);
         return UserResource::collection(User::query()->orderBy('id', 'desc')->paginate(10));
     }
 
@@ -28,6 +29,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        auth()->user()->can('manipulate', User::class);
         $data = $request->validated();
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
@@ -55,6 +57,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
+        auth()->user()->can('manipulate', User::class);
         $data = $request->validated();
         if (isset($data['password'])) {
             $data['password'] = bcrypt($data['password']);
@@ -72,6 +75,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        auth()->user()->can('manipulate', User::class);
         $user->delete();
 
         return response("", 204);
