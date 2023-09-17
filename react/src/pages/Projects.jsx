@@ -42,7 +42,7 @@ export default function Projects() {
       <div>
         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", }}>
           <h1>Projects</h1>
-          { user.is_admin && <Link className="btn-add" to="/projects/new">Add new</Link> }
+          { user.is_admin == 1 && <Link className="btn-add" to="/projects/new">Add new</Link> }
         </div>
         <div className="card animated fadeInDown">
           <table>
@@ -70,8 +70,8 @@ export default function Projects() {
                     <td>{p.id}</td>
                     <td>{p.name}</td>
                     <td>{p.description}</td>
-                    <td>{p.created_at}</td>
-                    { user.is_admin && 
+                    <td>{p.priority}</td>
+                    { user.is_admin == 1 && 
                       <td>
                       <Link className="btn-edit" to={'/projects/' + p.id}>Edit</Link>
                       &nbsp;

@@ -41,7 +41,7 @@ export default function Tasks() {
       <div>
         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", }}>
           <h1>Tasks</h1>
-          { user.is_admin &&  <Link className="btn-add" to="/tasks/new">Add new</Link> }
+          { user.is_admin == 1 && <Link className="btn-add" to="/tasks/new">Add new</Link> }
         </div>
         <div className="card animated fadeInDown">
           <table>
@@ -70,7 +70,7 @@ export default function Tasks() {
                     <td>{t.name}</td>
                     <td>{t.description}</td>
                     <td>{t.priority}</td>
-                    { user.is_admin && 
+                    { user.is_admin == 1 && 
                     <td>
                       
                       <Link className="btn-edit" to={'/tasks/' + t.id}>Edit</Link>
