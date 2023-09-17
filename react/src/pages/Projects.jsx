@@ -56,7 +56,7 @@ export default function Projects() {
         <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", }}>
           <h1>Projects</h1>
           {user.is_admin == 1 && <Link className="btn-add" to="/projects/new">Add new</Link>}
-          <button onClick={handleSortByPriority}>Sort by Priority</button> {/* Add the button */}
+          <button className="btn-edit" onClick={handleSortByPriority}>Sort by Priority</button> {/* Add the button */}
         </div>
         <div className="card animated fadeInDown">
           <table>
