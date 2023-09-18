@@ -38,7 +38,7 @@ export default function DefaultLayout() {
       <div className="content">
         <header>
           <div>
-            User Management Systems
+            Project Management Systems
           </div>
 
           <div>
