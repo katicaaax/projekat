@@ -8,6 +8,7 @@ use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\ProjectResource;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -73,13 +74,17 @@ class ProjectController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */
-    public function update(Request $request, Project $project)
-    {
-        $project->update($request->all());
+     *    
 
-        return new ProjectResource($project);
+     */
+    public function update(UpdateProjectRequest $request, Project $project)
+    {
+        if(!$project) return response()->json(['message' => 'Not found'], 404);
+    
+        $project->update($request->all());
+        return response()->json(['data' => $project], 200);
     }
+    
 
     /**
      * Remove the specified resource from storage.

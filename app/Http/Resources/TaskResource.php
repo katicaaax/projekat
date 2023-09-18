@@ -13,7 +13,7 @@ class TaskResource extends JsonResource
      * @return array<string, mixed>
      */
 
-    public static $wrap = 'task';
+    public static $wrap = false;
     public function toArray(Request $request): array
     {
         return  [

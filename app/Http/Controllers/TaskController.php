@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\TaskCollection;
 use App\Http\Resources\TaskResource;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UpdateTaskRequest;
 
 class TaskController extends Controller
 {
@@ -73,11 +74,13 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        if(!$task) return response()->json(['message' => 'Not found'], 404);
+    
+        $task->update($request->all());
+        return response()->json(['data' => $task], 200);
     }
-
     /**
      * Remove the specified resource from storage.
      */

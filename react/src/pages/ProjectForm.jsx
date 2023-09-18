@@ -33,7 +33,9 @@ export default function ProjectForm() {
 
   const onSubmit = ev => {
     ev.preventDefault();
+  
     if (project.id) {
+      console.log(project.id);
       axiosClient.put(`/projects/${project.id}`, project)
         .then(() => {
           setNotification('Project was successfully updated');
